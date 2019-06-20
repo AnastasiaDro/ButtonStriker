@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ButtonStriker</string>
+    <string name="fstBtn">Ю</string>
+    <string name="secStrikesName">Подряд:</string>
+    <string name="touchesName">Всего касаний</string>
+    <string name="strikesName">Всего попаданий</string>
+    <string name="strikeView">Подряд</string>
+    <string name="btnName">Жми!</string>
+</resources>
