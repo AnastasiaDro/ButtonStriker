@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private Integer press = 0;
     //счётчик последовательных попаданий
     private Integer strike = 0;
+    //переменная для смены направлений смещения кнопки
+    private int mod = -1;
 
     //флаг попадания
     private boolean flag = false;
@@ -89,12 +92,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     public void onClick(View view) {
         //показываем, что попал в кнопку
-
         press++;
+        System.out.println(press);;
         touch++;
         if (flag = true) {
             strike++;
-
         }
         else {
             strike = 1;
@@ -105,16 +107,19 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         flag = true;
 
         //пробуем менять положение
-
-        if (strike %2 == 0) {
-            myButtonChanger.changeBtnAlingment();
+        if (strike %3 == 0) {
+            myButtonChanger.changeBtnAlingment(mod);
+            mod=mod*(-2);
         }
         //изменим размер кнопки
-
-        if (strike % 10 == 0) {
+        if (strike % 9 == 0) {
+            mod=-1;
             myButtonChanger.changeBtnSize();
         }
 
+        }
+
+
+
     }
 
-}

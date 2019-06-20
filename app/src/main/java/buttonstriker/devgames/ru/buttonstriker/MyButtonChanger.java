@@ -11,6 +11,8 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     Button button;
     int newBtnHigh;
     int newBtnWight;
+    // на сколько сдвигаем кнопку
+    int changePx = 600;
 
     public MyButtonChanger(Context context, Button button) {
         super(context);
@@ -31,12 +33,12 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
 
 
     //меняем положение кнопки
-    public void changeBtnAlingment () {
+    public void changeBtnAlingment (int mod) {
         ViewGroup.LayoutParams params = button.getLayoutParams();
         int left = button.getLeft();
         int right = button.getRight();
-        button.setLeft(left-40);
-        button.setRight(right-40);
+        button.setLeft(left-changePx*mod);
+        button.setRight(right-changePx*mod);
         System.out.println(left);
     }
 
