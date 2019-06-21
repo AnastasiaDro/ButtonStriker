@@ -14,6 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
@@ -36,7 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     //счётчик последовательных попаданий
     private Integer strike = 0;
     //переменная для смены направлений смещения кнопки
-    private int mod = -1;
+   // private int mod = -1;
+    //обнулять внутренникй стайк-счётчик
+    int oneNine = 0;
 
     //флаг попадания
     private boolean flag = false;
@@ -71,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             case MotionEvent.ACTION_DOWN: // нажатие
                 touch++;
                 strike = 0;
+                oneNine = 0;
+
                 //увеличиваем счётчик на экране;
                 touchCountValue.setText(touch.toString());
                 strikeValue.setText(strike.toString());
@@ -93,14 +98,19 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     public void onClick(View view) {
         //показываем, что попал в кнопку
         press++;
-        System.out.println(press);;
         touch++;
         if (flag = true) {
             strike++;
+            oneNine++;
+            System.out.println(strike);
         }
         else {
             strike = 1;
+            oneNine = 1;
+            System.out.println(oneNine+" тут 1 ");
         }
+
+
         pressCountValue.setText(press.toString());
         touchCountValue.setText(touch.toString());
         strikeValue.setText(strike.toString());
@@ -108,14 +118,16 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         //пробуем менять положение
         if (strike %3 == 0) {
-            myButtonChanger.changeBtnAlingment(mod);
-            mod=mod*(-2);
+            myButtonChanger.changeBtnAlingment();
+ //           mod=mod*(-2);
         }
+
         //изменим размер кнопки
         if (strike % 9 == 0) {
-            mod=-1;
+//            mod=-1;
             myButtonChanger.changeBtnSize();
         }
+
 
         }
 
