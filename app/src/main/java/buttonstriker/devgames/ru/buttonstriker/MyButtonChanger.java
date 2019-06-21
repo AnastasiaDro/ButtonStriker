@@ -5,14 +5,14 @@ import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.Random;
+
 
 public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     Button button;
     int newBtnHigh;
     int newBtnWight;
     // на сколько сдвигаем кнопку
-    int changePx = 400;
+    int changePx = 300;
     int mod = -1;
     //позиция кнопки
     int position = 1;
