@@ -16,6 +16,9 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     int mod = -1;
     //позиция кнопки
     int position = 1;
+//узнаем плотность экрана
+    float density = getResources().getDisplayMetrics().density;
+
 
     public MyButtonChanger(Context context, Button button) {
         super(context);
@@ -51,6 +54,8 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
                 position = 1;
                 break;
         }
+
+
 
 
         int left = button.getLeft();

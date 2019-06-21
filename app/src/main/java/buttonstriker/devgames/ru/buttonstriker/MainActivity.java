@@ -65,11 +65,16 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         touchMe.setOnTouchListener(this);
         myButtonChanger = new MyButtonChanger(this.getBaseContext(), button);
 
+
     }
 
     //обработка касания на экран
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        //выведем плотность экрана
+        float density = getResources().getDisplayMetrics().density;
+        System.out.println("плотность экрана: "+ density);
+        //
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: // нажатие
                 touch++;
