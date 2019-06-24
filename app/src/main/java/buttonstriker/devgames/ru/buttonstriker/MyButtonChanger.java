@@ -11,18 +11,23 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     Button button;
     int newBtnHigh;
     int newBtnWight;
-    // на сколько сдвигаем кнопку
-    int changePx = 300;
-    int mod = -1;
+
     //позиция кнопки
     int position = 1;
-//узнаем плотность экрана
-    float density = getResources().getDisplayMetrics().density;
+//узнаем ширину экрана
+    int width;
+
+    // на сколько сдвигаем кнопку
+    int changePx;
+    int mod = -1;
 
 
-    public MyButtonChanger(Context context, Button button) {
+    public MyButtonChanger(Context context, Button button, int width) {
         super(context);
         this.button = button;
+        this.width = width;
+        this.changePx = width/4;
+
     }
 
 
@@ -56,13 +61,14 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         }
 
 
-
-
         int left = button.getLeft();
         int right = button.getRight();
-        button.setLeft(left-changePx*mod);
-        button.setRight(right-changePx*mod);
+        button.setLeft((left-changePx*mod));
+        button.setRight((right-changePx*mod));
         System.out.println("лево: " + left);
+
+
+
     }
 
     //рандом

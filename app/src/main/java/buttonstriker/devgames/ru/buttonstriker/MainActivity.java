@@ -1,9 +1,11 @@
 package buttonstriker.devgames.ru.buttonstriker;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private TextView strikeValue;
 
 
+
     //изменитель кнопки
     MyButtonChanger myButtonChanger;
 //textView для обработки касаний
@@ -44,9 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     //флаг попадания
     private boolean flag = false;
 
-    //переменные нового размера кнопки
-    int newBtnHigh;
-    int newBtnWight;
+    //ширина экрана
+   int width;
 
 
 
@@ -63,9 +65,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         strikeValue = findViewById(R.id.strikeValue);
         touchMe = findViewById(R.id.touchMe);
         touchMe.setOnTouchListener(this);
-        myButtonChanger = new MyButtonChanger(this.getBaseContext(), button);
 
+        //получаем ширину экрана
+        getScreenWidth();
 
+        System.out.println("ширина: "+ width);
+        myButtonChanger = new MyButtonChanger(this.getBaseContext(), button, width);
     }
 
     //обработка касания на экран
@@ -136,7 +141,14 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         }
 
-
+    //получаем ширину экрана
+        public int getScreenWidth() {
+            Display display = getWindowManager().getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            width = size.x;
+        return width;
+        }
 
     }
 
