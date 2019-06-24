@@ -50,11 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     //ширина экрана
    int width;
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
