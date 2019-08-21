@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
 
     //изменитель кнопки
-    MyButtonChanger myButtonChanger;
+   // MyButtonChanger myButtonChanger;
+    MyNewButtonChanger myButtonChanger;
 //textView для обработки касаний
     private TextView touchMe;
 
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         getScreenWidth();
 
         System.out.println("ширина: "+ width);
-        myButtonChanger = new MyButtonChanger(this.getBaseContext(), button, width);
+     //   myButtonChanger = new MyButtonChanger(this.getBaseContext(), button, width);
+        myButtonChanger = new MyNewButtonChanger(this.getBaseContext(), button, width);
     }
 
     //обработка касания на экран

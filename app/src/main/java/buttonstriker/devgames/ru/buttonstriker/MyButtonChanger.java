@@ -22,11 +22,13 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     int mod = -1;
 
 
+
     public MyButtonChanger(Context context, Button button, int width) {
         super(context);
         this.button = button;
         this.width = width;
         this.changePx = width/4;
+
 
     }
 
@@ -67,12 +69,6 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         button.setRight((right-changePx*mod));
         System.out.println("лево: " + left);
 
-
-
     }
-
-    //рандом
-
-
 
 }
