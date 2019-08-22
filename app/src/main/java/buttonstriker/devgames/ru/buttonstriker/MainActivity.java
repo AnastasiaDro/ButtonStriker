@@ -2,8 +2,10 @@ package buttonstriker.devgames.ru.buttonstriker;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
    // MyButtonChanger myButtonChanger;
     MyNewButtonChanger myButtonChanger;
 //textView для обработки касаний
-    private TextView touchMe;
+    private FrameLayout touchMe;
 
     //счётчик нажатий на экран
     private Integer touch = 0;
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.buttonCenter);
         touchCountValue = findViewById(R.id.screenTouchCount);
         pressCountValue = findViewById(R.id.btnPressedCount);
         strikeValue = findViewById(R.id.strikeValue);
