@@ -2,6 +2,7 @@ package buttonstriker.devgames.ru.buttonstriker;
 
 import android.content.Context;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
 
@@ -40,15 +41,33 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     //заменить размер кнопок
     //будем ориентироваться на размер средней кнопки
     public void changeBtnSize () {
-        ViewGroup.LayoutParams params = buttonCenter.getLayoutParams();
+        ViewGroup.LayoutParams paramsCenter = buttonCenter.getLayoutParams();
+        ViewGroup.LayoutParams paramsRight = buttonRight.getLayoutParams();
+        ViewGroup.LayoutParams paramsLeft = buttonLeft.getLayoutParams();
+
         int sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
-        newBtnHigh = params.height - sizeInPX;
-        newBtnWight = params.width - sizeInPX;
-        params.height = newBtnHigh;
-        params.width = newBtnWight;
-        buttonLeft.setLayoutParams(params);
-        buttonCenter.setLayoutParams(params);
-        buttonRight.setLayoutParams(params);
+        newBtnHigh = paramsCenter.height - sizeInPX;
+        newBtnWight = paramsCenter.width - sizeInPX;
+        paramsCenter.height = newBtnHigh;
+        paramsCenter.width = newBtnWight;
+
+
+        paramsRight.height = newBtnHigh;
+        paramsRight.width = newBtnWight;
+
+        paramsLeft.height = newBtnHigh;
+        paramsLeft.width = newBtnWight;
+
+
+//        buttonLeft.setHeight(params.height);
+//        buttonLeft.setWidth(params.width);
+
+
+
+
+        buttonCenter.setLayoutParams(paramsCenter);
+        buttonRight.setLayoutParams(paramsRight);
+        buttonLeft.setLayoutParams(paramsLeft);
     }
 
 
