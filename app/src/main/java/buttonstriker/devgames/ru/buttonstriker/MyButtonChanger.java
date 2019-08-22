@@ -8,7 +8,9 @@ import android.widget.Button;
 
 
 public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
-    Button button
+    Button buttonLeft;
+    Button buttonCenter;
+    Button buttonRight;
     int newBtnHigh;
     int newBtnWight;
 
@@ -23,9 +25,11 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
 
 
 
-    public MyButtonChanger(Context context, Button button, int width) {
+    public MyButtonChanger(Context context, Button buttonLeft, Button buttonCenter, Button buttonRight, int width) {
         super(context);
-        this.button = button;
+        this.buttonLeft = buttonLeft;
+        this.buttonCenter = buttonCenter;
+        this.buttonRight = buttonRight;
         this.width = width;
         this.changePx = width/4;
 
@@ -33,15 +37,18 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     }
 
 
-    //заменить размер кнопки
+    //заменить размер кнопок
+    //будем ориентироваться на размер средней кнопки
     public void changeBtnSize () {
-        ViewGroup.LayoutParams params = button.getLayoutParams();
+        ViewGroup.LayoutParams params = buttonCenter.getLayoutParams();
         int sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
         newBtnHigh = params.height - sizeInPX;
         newBtnWight = params.width - sizeInPX;
         params.height = newBtnHigh;
         params.width = newBtnWight;
-        button.setLayoutParams(params);
+        buttonLeft.setLayoutParams(params);
+        buttonCenter.setLayoutParams(params);
+        buttonRight.setLayoutParams(params);
     }
 
 
@@ -63,11 +70,11 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         }
 
 
-        int left = button.getLeft();
-        int right = button.getRight();
-        button.setLeft((left-changePx*mod));
-        button.setRight((right-changePx*mod));
-        System.out.println("лево: " + left);
+//        int left = button.getLeft();
+//        int right = button.getRight();
+//        button.setLeft((left-changePx*mod));
+//        button.setRight((right-changePx*mod));
+//        System.out.println("лево: " + left);
 
     }
 
