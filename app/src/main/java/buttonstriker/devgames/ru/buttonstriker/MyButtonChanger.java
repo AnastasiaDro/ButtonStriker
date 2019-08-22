@@ -8,7 +8,7 @@ import android.widget.Button;
 
 
 public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
-    Button button;
+    Button button
     int newBtnHigh;
     int newBtnWight;
 
