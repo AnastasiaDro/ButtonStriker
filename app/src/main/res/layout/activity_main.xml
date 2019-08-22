@@ -126,7 +126,7 @@
         <Button
             android:id="@+id/buttonCenter"
             android:layout_width="148dp"
-            android:layout_height="125dp"
+            android:layout_height="131dp"
             android:layout_gravity="center"
             android:onClick="onClick"
             android:text="@string/btnName" />
