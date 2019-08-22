@@ -24,7 +24,9 @@ import java.sql.SQLOutput;
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
     //графика
-    private Button button;
+    private Button  buttonLeft;
+    private Button buttonCenter;
+    private Button buttonRight;
     private TextView touchCountValue;
     private TextView pressCountValue;
     private TextView strikeValue;
@@ -32,8 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
 
     //изменитель кнопки
-   // MyButtonChanger myButtonChanger;
-    MyNewButtonChanger myButtonChanger;
+    MyButtonChanger myButtonChanger;
+   // MyNewButtonChanger myButtonChanger;
 //textView для обработки касаний
     private FrameLayout touchMe;
 
@@ -58,7 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.buttonCenter);
+        buttonLeft = findViewById(R.id.buttonLeft);
+        buttonCenter = findViewById(R.id.buttonCenter);
+        buttonRight = findViewById(R.id.buttonRight);
         touchCountValue = findViewById(R.id.screenTouchCount);
         pressCountValue = findViewById(R.id.btnPressedCount);
         strikeValue = findViewById(R.id.strikeValue);
@@ -69,8 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         getScreenWidth();
 
         System.out.println("ширина: "+ width);
-     //   myButtonChanger = new MyButtonChanger(this.getBaseContext(), button, width);
-        myButtonChanger = new MyNewButtonChanger(this.getBaseContext(), button, width);
+        myButtonChanger = new MyButtonChanger(this.getBaseContext(), buttonLeft, buttonCenter, buttonRight, width);
+       // myButtonChanger = new MyNewButtonChanger(this.getBaseContext(), button, width);
     }
 
     //обработка касания на экран
@@ -127,14 +131,14 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         flag = true;
 
         //пробуем менять положение
-        if (strike %3 == 0) {
-            myButtonChanger.changeBtnAlingment();
- //           mod=mod*(-2);
-        }
+//        if (strike %3 == 0) {
+//            myButtonChanger.changeBtnAlingment();
+// //           mod=mod*(-2);
+//        }
 
         //изменим размер кнопки
         if (strike % 9 == 0) {
-//            mod=-1;
+//
             myButtonChanger.changeBtnSize();
         }
 

@@ -132,7 +132,7 @@
             android:text="@string/btnName" />
 
         <Button
-            android:id="@+id/button-left"
+            android:id="@+id/buttonRight"
             android:layout_width="148dp"
             android:layout_height="131dp"
             android:layout_gravity="right|center_vertical"
