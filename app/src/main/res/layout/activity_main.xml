@@ -121,7 +121,8 @@
             android:layout_height="131dp"
             android:layout_gravity="left|center_vertical"
             android:onClick="onClick"
-            android:text="@string/btnName" />
+            android:text="@string/btnName"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/buttonCenter"
@@ -137,7 +138,8 @@
             android:layout_height="131dp"
             android:layout_gravity="right|center_vertical"
             android:onClick="onClick"
-            android:text="@string/btnName" />
+            android:text="@string/btnName"
+            android:visibility="invisible" />
     </FrameLayout>
 
 

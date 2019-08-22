@@ -2,6 +2,7 @@ package buttonstriker.devgames.ru.buttonstriker;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -131,18 +132,16 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         flag = true;
 
         //пробуем менять положение
-//        if (strike %3 == 0) {
-//            myButtonChanger.changeBtnAlingment();
+        if (strike %3 == 0) {
+         myButtonChanger.changeBtnAlingment();
 // //           mod=mod*(-2);
-//        }
+        }
 
         //изменим размер кнопки
         if (strike % 9 == 0) {
 //
             myButtonChanger.changeBtnSize();
         }
-
-
         }
 
     //получаем ширину экрана
@@ -153,6 +152,21 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             width = size.x;
         return width;
         }
+
+
+        //метод сохранения активности (из жизнцикла)
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("Touch", touch);
+    }
+    // чтобы подгружалось сохранение
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        touch = savedInstanceState.getInt("Touch");
+        touchCountValue.setText(touch.toString());
+    }
 
     }
 
