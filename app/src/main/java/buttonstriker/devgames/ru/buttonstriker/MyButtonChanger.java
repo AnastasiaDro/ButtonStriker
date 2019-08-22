@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
 
 
 public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
@@ -15,6 +16,8 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     int newBtnHigh;
     int newBtnWight;
 
+ //   ArrayList buttonArray = new ArrayList();
+
     //позиция кнопки
     int position = 1;
 //узнаем ширину экрана
@@ -22,7 +25,7 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
 
     // на сколько сдвигаем кнопку
     int changePx;
-    int mod = -1;
+   // int mod = -1;
 
 
 
@@ -33,24 +36,37 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         this.buttonRight = buttonRight;
         this.width = width;
         this.changePx = width/4;
-
-
+//        buttonArray.add(buttonLeft);
+//        buttonArray.add(buttonCenter);
+//        buttonArray.add(buttonRight);
     }
 
 
     //заменить размер кнопок
+    //ТУТ НУЖНО ПЕРЕДЕЛАТЬ КРАСИВО!!!
     //будем ориентироваться на размер средней кнопки
     public void changeBtnSize () {
+
+        //берем параметры у каждой кнопки по отдельности
+
+
         ViewGroup.LayoutParams paramsCenter = buttonCenter.getLayoutParams();
         ViewGroup.LayoutParams paramsRight = buttonRight.getLayoutParams();
         ViewGroup.LayoutParams paramsLeft = buttonLeft.getLayoutParams();
 
+        //что-то там рпиводим к пикселям в зависимости от полученного размера экрана
         int sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
-        newBtnHigh = paramsCenter.height - sizeInPX;
-        newBtnWight = paramsCenter.width - sizeInPX;
+        //задаем новые ширину и высоту в зависимости от видимости
+
+
+
+
+
+        newBtnHigh = paramsRight.height - sizeInPX;
+        newBtnWight = paramsRight.width - sizeInPX;
+        //каждой кнопке по отдельности изменяем в её параметрах ширину и высоту на новую
         paramsCenter.height = newBtnHigh;
         paramsCenter.width = newBtnWight;
-
 
         paramsRight.height = newBtnHigh;
         paramsRight.width = newBtnWight;
@@ -58,13 +74,7 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         paramsLeft.height = newBtnHigh;
         paramsLeft.width = newBtnWight;
 
-
-//        buttonLeft.setHeight(params.height);
-//        buttonLeft.setWidth(params.width);
-
-
-
-
+        //Прикручивааем каждой кнопке новые параметры
         buttonCenter.setLayoutParams(paramsCenter);
         buttonRight.setLayoutParams(paramsRight);
         buttonLeft.setLayoutParams(paramsLeft);
@@ -75,15 +85,18 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     public void changeBtnAlingment () {
         switch (position){
             case 1:
-                mod = -1;
+                buttonCenter.setVisibility(INVISIBLE);
+                buttonLeft.setVisibility(VISIBLE);
                 position = 2;
                 break;
             case 2:
-                mod = 2;
+                buttonLeft.setVisibility(INVISIBLE);
+                buttonRight.setVisibility(VISIBLE);
                 position = 3;
                 break;
             case 3:
-                mod = -1;
+                buttonRight.setVisibility(INVISIBLE);
+                buttonCenter.setVisibility(VISIBLE);
                 position = 1;
                 break;
         }
