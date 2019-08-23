@@ -21,14 +21,10 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
 //узнаем ширину экрана
     int width;
 
-    // на сколько сдвигаем кнопку
-    int changePx;
-   // int mod = -1;
-
+    //размер в пикселях, на который будем потом уменьшать кнопку
     int sizeInPX;
 
     MainPresenter presenter;
-
 
     public MyButtonChanger(Context context, Button buttonLeft, Button buttonCenter, Button buttonRight, int width, MainPresenter presenter) {
         super(context);
@@ -36,9 +32,9 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         this.buttonCenter = buttonCenter;
         this.buttonRight = buttonRight;
         this.width = width;
-        this.changePx = width/4;
-        this.presenter = presenter;
 
+
+        this.presenter = presenter;
 
         //что-то там рпиводим к пикселям в зависимости от полученного размера экрана для последующего изменения размера кнопки
         sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
@@ -56,8 +52,6 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         ViewGroup.LayoutParams paramsRight = buttonRight.getLayoutParams();
         ViewGroup.LayoutParams paramsLeft = buttonLeft.getLayoutParams();
 
-//        //что-то там рпиводим к пикселям в зависимости от полученного размера экрана
-//        int sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
         //задаем новые ширину и высоту в зависимости от видимости
 
         newBtnHigh = paramsRight.height - sizeInPX;
@@ -76,9 +70,6 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         buttonCenter.setLayoutParams(paramsCenter);
         buttonRight.setLayoutParams(paramsRight);
         buttonLeft.setLayoutParams(paramsLeft);
-
-        //проверка блятьf
-        System.out.println("массив презентера пуст =" + presenter.getPresenterButtonParamsArray().isEmpty());
 
         //тут добавляем в массив презентера параметры кнопок
         presenter.setPresenterButtonParamsArray(paramsLeft, paramsCenter, paramsRight);
@@ -104,15 +95,5 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
                 position = 1;
                 break;
         }
-
-
-
-//        int left = button.getLeft();
-//        int right = button.getRight();
-//        button.setLeft((left-changePx*mod));
-//        button.setRight((right-changePx*mod));
-//        System.out.println("лево: " + left);
-
     }
-
 }
