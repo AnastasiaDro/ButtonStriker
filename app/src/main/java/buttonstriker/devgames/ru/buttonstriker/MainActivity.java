@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private TextView pressCountValue;
     private TextView strikeValue;
 
-
+//
 
     //изменитель кнопки
     MyButtonChanger myButtonChanger;
