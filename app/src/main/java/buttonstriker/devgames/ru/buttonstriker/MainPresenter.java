@@ -1,7 +1,10 @@
 package buttonstriker.devgames.ru.buttonstriker;
 
 
+import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -10,6 +13,7 @@ public class MainPresenter {
     private static MainPresenter instance = null;
 
     private static final Object syncobj = new Object();
+
 
 //переменные для сохранения
 //счётчик нажатий на экран
@@ -21,9 +25,11 @@ public class MainPresenter {
     //обнулять внутренникй стайк-счётчик
     private int oneNine;
 
+
     //размеры кнопок тоже надо сохранить ТУТ
-    private ArrayList presenterButtonParamsArray;
-    //
+    private ArrayList <ViewGroup.LayoutParams> presenterButtonParamsArray;
+
+
 
     private MainPresenter () {
         touch=0;
@@ -35,6 +41,8 @@ public class MainPresenter {
         // private int mod = -1;
         //обнулять внутренникй стайк-счётчик
         oneNine=0;
+        //делаем наш массив с параметрами пустым
+        presenterButtonParamsArray = new ArrayList<>(3);
     }
 
     //Методы для увеличения переменных на 1
@@ -92,14 +100,42 @@ public class MainPresenter {
         synchronized (syncobj){
             if (instance == null){
                 instance = new MainPresenter();
+
             }
             return instance;
         }
     }
 
-//записываем ArrayList с параметрами кнопок
-    public ArrayList getButtonParams() {
-        presenterButtonParamsArray = MainActivity.myButtonChanger.getButtonParamsArray();
-    return  presenterButtonParamsArray;
+    //геттер для массива
+    public ArrayList<ViewGroup.LayoutParams> getPresenterButtonParamsArray() {
+        return presenterButtonParamsArray;
     }
+
+
+
+    public ViewGroup.LayoutParams getButtonParams(String btnPosName) {
+//        presenterButtonParamsArray = MainActivity.myButtonChanger.getButtonParamsArray();
+       ViewGroup.LayoutParams btnParams = null;
+        switch (btnPosName){
+            case "left":
+            btnParams = presenterButtonParamsArray.get(0);
+            break;
+            case "center":
+            btnParams = presenterButtonParamsArray.get(1);
+            break;
+            case "right":
+            btnParams = presenterButtonParamsArray.get(2);
+        }
+        return btnParams;
+    }
+
+    //записываем в ArrayList с параметрами кнопок
+    //метод используется в классе MyButtonChanger.changeButtonSize()
+    public void setPresenterButtonParamsArray(ViewGroup.LayoutParams paramsLeft, ViewGroup.LayoutParams paramsCenter, ViewGroup.LayoutParams paramsRight){
+        //presenterButtonParamsArray.clear();
+        presenterButtonParamsArray.add(paramsLeft);
+        presenterButtonParamsArray.add(paramsCenter);
+        presenterButtonParamsArray.add(paramsRight);
+    }
+
 }

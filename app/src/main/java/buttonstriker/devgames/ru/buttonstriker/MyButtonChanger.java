@@ -2,11 +2,10 @@ package buttonstriker.devgames.ru.buttonstriker;
 
 import android.content.Context;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.ArrayList;
+
 
 
 public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
@@ -15,9 +14,7 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     private Button buttonRight;
     private int newBtnHigh;
     private int newBtnWight;
-    private ArrayList buttonParamsArray;
 
- //   ArrayList buttonArray = new ArrayList();
 
     //позиция кнопки
     int position = 1;
@@ -28,18 +25,24 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     int changePx;
    // int mod = -1;
 
+    int sizeInPX;
+
+    MainPresenter presenter;
 
 
-    public MyButtonChanger(Context context, Button buttonLeft, Button buttonCenter, Button buttonRight, int width) {
+    public MyButtonChanger(Context context, Button buttonLeft, Button buttonCenter, Button buttonRight, int width, MainPresenter presenter) {
         super(context);
         this.buttonLeft = buttonLeft;
         this.buttonCenter = buttonCenter;
         this.buttonRight = buttonRight;
         this.width = width;
         this.changePx = width/4;
-//        buttonArray.add(buttonLeft);
-//        buttonArray.add(buttonCenter);
-//        buttonArray.add(buttonRight);
+        this.presenter = presenter;
+
+
+        //что-то там рпиводим к пикселям в зависимости от полученного размера экрана для последующего изменения размера кнопки
+        sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+
     }
 
 
@@ -53,8 +56,8 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         ViewGroup.LayoutParams paramsRight = buttonRight.getLayoutParams();
         ViewGroup.LayoutParams paramsLeft = buttonLeft.getLayoutParams();
 
-        //что-то там рпиводим к пикселям в зависимости от полученного размера экрана
-        int sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+//        //что-то там рпиводим к пикселям в зависимости от полученного размера экрана
+//        int sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
         //задаем новые ширину и высоту в зависимости от видимости
 
         newBtnHigh = paramsRight.height - sizeInPX;
@@ -74,15 +77,13 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         buttonRight.setLayoutParams(paramsRight);
         buttonLeft.setLayoutParams(paramsLeft);
 
-        //тут массив с параметрами
-        buttonParamsArray.add(paramsCenter);
-        buttonParamsArray.add(paramsRight);
-        buttonParamsArray.add(paramsLeft);
+        //проверка блятьf
+        System.out.println("массив презентера пуст =" + presenter.getPresenterButtonParamsArray().isEmpty());
 
+        //тут добавляем в массив презентера параметры кнопок
+        presenter.setPresenterButtonParamsArray(paramsLeft, paramsCenter, paramsRight);
     }
-        public ArrayList getButtonParamsArray(){
-        return buttonParamsArray;
-        }
+
 
     //меняем положение кнопки
     public void changeBtnAlingment () {

@@ -21,8 +21,10 @@ import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
+
 
 
     //Создаём презентер
@@ -35,11 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private TextView touchCountValue;
     private TextView pressCountValue;
     private TextView strikeValue;
-
-//
-
     //изменитель кнопки
     static MyButtonChanger myButtonChanger;
+//
+
+
 
 //    //счётчик нажатий на экран
 //    private Integer touch = 0;
@@ -57,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     //ширина экрана
    int width;
+   //массив спараметрами кнопок
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +71,14 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         buttonLeft = findViewById(R.id.buttonLeft);
         buttonCenter = findViewById(R.id.buttonCenter);
         buttonRight = findViewById(R.id.buttonRight);
-        //здесь задаём размеры кнопок
-        buttonLeft.setLayoutParams(presenter.getButtonParams());
-        buttonCenter.setLayoutParams(presenter.getButtonParams());
-        buttonRight.setLayoutParams(presenter.getButtonParams());
+        //здесь задаём размеры кнопок если массив с данными уже есть
+        if (presenter.getPresenterButtonParamsArray().isEmpty() == false) {
+            buttonLeft.setLayoutParams(presenter.getButtonParams("left"));
+            buttonCenter.setLayoutParams(presenter.getButtonParams("center"));
+            buttonRight.setLayoutParams(presenter.getButtonParams("right"));
+        } else {
+            System.out.println("массив не пустой");
+        }
 
         touchCountValue = findViewById(R.id.screenTouchCount);
         pressCountValue = findViewById(R.id.btnPressedCount);
@@ -87,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
 
         System.out.println("ширина: " + width);
-        myButtonChanger = new MyButtonChanger(this.getBaseContext(), buttonLeft, buttonCenter, buttonRight, width);
+        myButtonChanger = new MyButtonChanger(this.getBaseContext(), buttonLeft, buttonCenter, buttonRight, width, presenter);
         // myButtonChanger = new MyNewButtonChanger(this.getBaseContext(), button, width);
 
     }
