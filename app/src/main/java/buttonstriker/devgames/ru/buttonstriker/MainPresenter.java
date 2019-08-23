@@ -9,13 +9,13 @@ public class MainPresenter {
 
 //переменные для сохранения
 //счётчик нажатий на экран
-private Integer touch;
+private static Integer touch;
     //счётчик нажатий на кнопку
-    private Integer press;
+    private static Integer press;
     //счётчик последовательных попаданий
-    private Integer strike;
+    private static Integer strike;
     //обнулять внутренникй стайк-счётчик
-    private int oneNine;
+    private static int oneNine;
 
     //размеры кнопок тоже надо сохранить ТУТ
 
@@ -34,9 +34,12 @@ private Integer touch;
     }
 
     //Методы для увеличения переменных на 1
-    public void incrementTouch(){
+    public static void incrementTouch(){
         touch++;
     }
+
+
+
     public void incrementPress(){
         press++;
     }
