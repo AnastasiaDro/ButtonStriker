@@ -1,6 +1,10 @@
 package buttonstriker.devgames.ru.buttonstriker;
 
 
+import android.view.ViewGroup;
+
+import java.util.ArrayList;
+
 //Класс для сохранения переменных
 public class MainPresenter {
     private static MainPresenter instance = null;
@@ -18,7 +22,7 @@ public class MainPresenter {
     private int oneNine;
 
     //размеры кнопок тоже надо сохранить ТУТ
-
+    private ArrayList presenterButtonParamsArray;
     //
 
     private MainPresenter () {
@@ -93,6 +97,9 @@ public class MainPresenter {
         }
     }
 
-
-
+//записываем ArrayList с параметрами кнопок
+    public ArrayList getButtonParams() {
+        presenterButtonParamsArray = MainActivity.myButtonChanger.getButtonParamsArray();
+    return  presenterButtonParamsArray;
+    }
 }

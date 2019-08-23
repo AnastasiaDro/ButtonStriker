@@ -10,11 +10,12 @@ import java.util.ArrayList;
 
 
 public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
-    Button buttonLeft;
-    Button buttonCenter;
-    Button buttonRight;
-    int newBtnHigh;
-    int newBtnWight;
+    private Button buttonLeft;
+    private Button buttonCenter;
+    private Button buttonRight;
+    private int newBtnHigh;
+    private int newBtnWight;
+    private ArrayList buttonParamsArray;
 
  //   ArrayList buttonArray = new ArrayList();
 
@@ -48,8 +49,6 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     public void changeBtnSize () {
 
         //берем параметры у каждой кнопки по отдельности
-
-
         ViewGroup.LayoutParams paramsCenter = buttonCenter.getLayoutParams();
         ViewGroup.LayoutParams paramsRight = buttonRight.getLayoutParams();
         ViewGroup.LayoutParams paramsLeft = buttonLeft.getLayoutParams();
@@ -57,10 +56,6 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         //что-то там рпиводим к пикселям в зависимости от полученного размера экрана
         int sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
         //задаем новые ширину и высоту в зависимости от видимости
-
-
-
-
 
         newBtnHigh = paramsRight.height - sizeInPX;
         newBtnWight = paramsRight.width - sizeInPX;
@@ -78,8 +73,16 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
         buttonCenter.setLayoutParams(paramsCenter);
         buttonRight.setLayoutParams(paramsRight);
         buttonLeft.setLayoutParams(paramsLeft);
-    }
 
+        //тут массив с параметрами
+        buttonParamsArray.add(paramsCenter);
+        buttonParamsArray.add(paramsRight);
+        buttonParamsArray.add(paramsLeft);
+
+    }
+        public ArrayList getButtonParamsArray(){
+        return buttonParamsArray;
+        }
 
     //меняем положение кнопки
     public void changeBtnAlingment () {
@@ -100,6 +103,7 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
                 position = 1;
                 break;
         }
+
 
 
 //        int left = button.getLeft();

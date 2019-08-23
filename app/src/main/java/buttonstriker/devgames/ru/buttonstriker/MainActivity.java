@@ -24,6 +24,7 @@ import java.sql.SQLOutput;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
+
     //Создаём презентер
     private MainPresenter presenter = MainPresenter.getInstance();
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 //
 
     //изменитель кнопки
-    MyButtonChanger myButtonChanger;
+    static MyButtonChanger myButtonChanger;
 
 //    //счётчик нажатий на экран
 //    private Integer touch = 0;
@@ -64,6 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         buttonLeft = findViewById(R.id.buttonLeft);
         buttonCenter = findViewById(R.id.buttonCenter);
         buttonRight = findViewById(R.id.buttonRight);
+        //здесь задаём размеры кнопок
+        buttonLeft.setLayoutParams(presenter.getButtonParams());
+        buttonCenter.setLayoutParams(presenter.getButtonParams());
+        buttonRight.setLayoutParams(presenter.getButtonParams());
+
         touchCountValue = findViewById(R.id.screenTouchCount);
         pressCountValue = findViewById(R.id.btnPressedCount);
         strikeValue = findViewById(R.id.strikeValue);
@@ -117,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         return true;
     }
-
 
 
     public void onClick(View view) {
