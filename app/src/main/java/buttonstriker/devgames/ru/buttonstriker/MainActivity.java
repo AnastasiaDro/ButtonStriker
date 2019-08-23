@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     //изменитель кнопки
     MyButtonChanger myButtonChanger;
-   // MyNewButtonChanger myButtonChanger;
-//textView для обработки касаний
-    private FrameLayout touchMe;
 
 //    //счётчик нажатий на экран
 //    private Integer touch = 0;
@@ -70,17 +67,24 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         touchCountValue = findViewById(R.id.screenTouchCount);
         pressCountValue = findViewById(R.id.btnPressedCount);
         strikeValue = findViewById(R.id.strikeValue);
-        touchMe = findViewById(R.id.touchMe);
+        //подгружаем в текстовые поля значения из презентера
+        touchCountValue.setText(presenter.getTouch().toString());
+        pressCountValue.setText(presenter.getPress().toString());
+        strikeValue.setText(presenter.getStrike().toString());
+
+        //textView для обработки касаний
+        FrameLayout touchMe = findViewById(R.id.touchMe);
         touchMe.setOnTouchListener(this);
 
         //получаем ширину экрана
         getScreenWidth();
 
-        System.out.println("ширина: "+ width);
-        myButtonChanger = new MyButtonChanger(this.getBaseContext(), buttonLeft, buttonCenter, buttonRight, width);
-       // myButtonChanger = new MyNewButtonChanger(this.getBaseContext(), button, width);
-    }
 
+        System.out.println("ширина: " + width);
+        myButtonChanger = new MyButtonChanger(this.getBaseContext(), buttonLeft, buttonCenter, buttonRight, width);
+        // myButtonChanger = new MyNewButtonChanger(this.getBaseContext(), button, width);
+
+    }
     //обработка касания на экран
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -94,11 +98,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 //                strike = 0;
 //                oneNine = 0;
 
-                MainPresenter.incrementTouch();
-                MainPresenter.setStrike()
+                presenter.incrementTouch();
+                presenter.setStrike(0);
+                presenter.setOneNine(0);
                 //увеличиваем счётчик на экране;
-                touchCountValue.setText(touch.toString());
-                strikeValue.setText(strike.toString());
+                touchCountValue.setText(presenter.getTouch().toString());
+                strikeValue.setText(presenter.getStrike().toString());
                 flag = false;
                 break;
 //            case MotionEvent.ACTION_MOVE: // движение
@@ -117,37 +122,42 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     public void onClick(View view) {
         //показываем, что попал в кнопку
-        press++;
-        touch++;
+        //press++;
+        //touch++;
+       presenter.incrementPress();
+       presenter.incrementTouch();
         if (flag = true) {
-            strike++;
-            oneNine++;
-            System.out.println(strike);
-        }
-        else {
-            strike = 1;
-            oneNine = 1;
-            System.out.println(oneNine+" тут 1 ");
+//            strike++;
+//            oneNine++;
+            presenter.incrementStrike();
+            presenter.incrementOneNine();
+
+
+   //         System.out.println(strike);
+        } else {
+//            strike = 1;
+//            oneNine = 1;
+            presenter.setStrike(1);
+            presenter.setOneNine(1);
         }
 
 
-        pressCountValue.setText(press.toString());
-        touchCountValue.setText(touch.toString());
-        strikeValue.setText(strike.toString());
+        pressCountValue.setText(presenter.getPress().toString());
+        touchCountValue.setText(presenter.getTouch().toString());
+        strikeValue.setText(presenter.getStrike().toString());
         flag = true;
 
         //пробуем менять положение
-        if (strike %3 == 0) {
-         myButtonChanger.changeBtnAlingment();
+        if (presenter.getStrike() % 3 == 0) {
+            myButtonChanger.changeBtnAlingment();
 // //           mod=mod*(-2);
         }
 
         //изменим размер кнопки
-        if (strike % 9 == 0) {
-//
+        if (presenter.getStrike() % 9 == 0) {
             myButtonChanger.changeBtnSize();
         }
-        }
+    }
 
     //получаем ширину экрана
         public int getScreenWidth() {
@@ -159,19 +169,19 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         }
 
 
-        //метод сохранения активности (из жизнцикла)
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("Touch", touch);
-    }
-    // чтобы подгружалось сохранение
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        touch = savedInstanceState.getInt("Touch");
-        touchCountValue.setText(touch.toString());
-    }
+//        //метод сохранения активности (из жизнцикла)
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        outState.putInt("Touch", presenter.getTouch());
+//    }
+//    // чтобы подгружалось сохранение
+//    @Override
+//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//        touch = savedInstanceState.getInt("Touch");
+//        touchCountValue.setText(touch.toString());
+//    }
 
     }
 
