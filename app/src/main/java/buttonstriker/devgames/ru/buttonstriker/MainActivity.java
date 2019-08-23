@@ -24,6 +24,9 @@ import java.sql.SQLOutput;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
+    //Создаём презентер
+    private MainPresenter presenter = MainPresenter.getInstance();
+
     //графика
     private Button  buttonLeft;
     private Button buttonCenter;
@@ -40,16 +43,16 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 //textView для обработки касаний
     private FrameLayout touchMe;
 
-    //счётчик нажатий на экран
-    private Integer touch = 0;
-    //счётчик нажатий на кнопку
-    private Integer press = 0;
-    //счётчик последовательных попаданий
-    private Integer strike = 0;
-    //переменная для смены направлений смещения кнопки
-   // private int mod = -1;
-    //обнулять внутренникй стайк-счётчик
-    int oneNine = 0;
+//    //счётчик нажатий на экран
+//    private Integer touch = 0;
+//    //счётчик нажатий на кнопку
+//    private Integer press = 0;
+//    //счётчик последовательных попаданий
+//    private Integer strike = 0;
+//    //переменная для смены направлений смещения кнопки
+//   // private int mod = -1;
+//    //обнулять внутренникй стайк-счётчик
+//    int oneNine = 0;
 
     //флаг попадания
     private boolean flag = false;
@@ -87,10 +90,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         //
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: // нажатие
-                touch++;
-                strike = 0;
-                oneNine = 0;
+//                touch++;
+//                strike = 0;
+//                oneNine = 0;
 
+                MainPresenter.incrementTouch();
+                MainPresenter.setStrike()
                 //увеличиваем счётчик на экране;
                 touchCountValue.setText(touch.toString());
                 strikeValue.setText(strike.toString());
