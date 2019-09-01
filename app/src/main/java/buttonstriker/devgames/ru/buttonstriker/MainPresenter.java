@@ -2,11 +2,16 @@ package buttonstriker.devgames.ru.buttonstriker;
 
 
 import android.os.Bundle;
+import android.os.ParcelUuid;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.ArrayList;
+
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 
 //Класс для сохранения переменных
 public class MainPresenter {
@@ -22,14 +27,13 @@ public class MainPresenter {
     private  Integer press;
     //счётчик последовательных попаданий
     private Integer strike;
-    //обнулять внутренникй стайк-счётчик
+    //обнулять внутренникй страйк-счётчик
     private int oneNine;
-
 
     //размеры кнопок тоже надо сохранить ТУТ
     private ArrayList <ViewGroup.LayoutParams> presenterButtonParamsArray;
-
-
+    //ТУТ НУЖНО СОХРАНЯТЬ ВИДИМОСТЬ КНОПОК
+    private int btnVisibArr[];
 
     private MainPresenter () {
         touch=0;
@@ -43,6 +47,9 @@ public class MainPresenter {
         oneNine=0;
         //делаем наш массив с параметрами пустым
         presenterButtonParamsArray = new ArrayList<>(3);
+
+        //видимость кнопок
+        btnVisibArr = new int[]{INVISIBLE, VISIBLE, INVISIBLE};
     }
 
     //Методы для увеличения переменных на 1
@@ -110,7 +117,15 @@ public class MainPresenter {
     public ArrayList<ViewGroup.LayoutParams> getPresenterButtonParamsArray() {
         return presenterButtonParamsArray;
     }
+    //геттер для массива с видимостями кнопок
+    public int[] getBtnVisibArr(){
+        return btnVisibArr;
+    }
 
+    //перегрузим геттер для массива с видимостями кнопок
+    public int getBtnVisibArr(int i) {
+        return btnVisibArr[i];
+    }
 
 
     public ViewGroup.LayoutParams getButtonParams(String btnPosName) {
@@ -136,6 +151,15 @@ public class MainPresenter {
         presenterButtonParamsArray.add(paramsLeft);
         presenterButtonParamsArray.add(paramsCenter);
         presenterButtonParamsArray.add(paramsRight);
+        //тут видимость кнопок
     }
+
+    //меняем значения переменных в массиве
+    public void setBtnVisibInArray(int visibilityLeft, int visibilityCenter, int visibilityRight){
+                btnVisibArr[0] = visibilityLeft;
+                btnVisibArr[1] = visibilityCenter;
+                btnVisibArr[2] = visibilityRight;
+    }
+
 
 }

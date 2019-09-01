@@ -74,10 +74,13 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         //здесь задаём размеры кнопок если массив с данными уже есть
         if (presenter.getPresenterButtonParamsArray().isEmpty() == false) {
             buttonLeft.setLayoutParams(presenter.getButtonParams("left"));
+   //         buttonLeft.setVisibility(presenter.getBtnVisibArr(0));
             buttonCenter.setLayoutParams(presenter.getButtonParams("center"));
+     //       buttonCenter.setVisibility(presenter.getBtnVisibArr(1));
             buttonRight.setLayoutParams(presenter.getButtonParams("right"));
+   //         buttonRight.setVisibility(presenter.getBtnVisibArr(2));
         } else {
-            System.out.println("массив не пустой");
+            System.out.println("массив пустой");
         }
 
         touchCountValue = findViewById(R.id.screenTouchCount);
@@ -88,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         pressCountValue.setText(presenter.getPress().toString());
         strikeValue.setText(presenter.getStrike().toString());
 
+        //подгружаем положение кнопок
+        buttonLeft.setVisibility(presenter.getBtnVisibArr(0));
+        buttonCenter.setVisibility(presenter.getBtnVisibArr(1));
+        buttonRight.setVisibility(presenter.getBtnVisibArr(2));
         //textView для обработки касаний
         FrameLayout touchMe = findViewById(R.id.touchMe);
         touchMe.setOnTouchListener(this);

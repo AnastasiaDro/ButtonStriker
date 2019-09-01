@@ -87,13 +87,17 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
             case 2:
                 buttonLeft.setVisibility(INVISIBLE);
                 buttonRight.setVisibility(VISIBLE);
+
                 position = 3;
                 break;
             case 3:
                 buttonRight.setVisibility(INVISIBLE);
                 buttonCenter.setVisibility(VISIBLE);
+
                 position = 1;
                 break;
         }
+        //сохраняем видимости кнопок
+        presenter.setBtnVisibInArray(buttonLeft.getVisibility(), buttonCenter.getVisibility(), buttonRight.getVisibility());
     }
 }
