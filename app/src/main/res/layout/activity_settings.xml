@@ -88,13 +88,13 @@ android:orientation="vertical"
             android:layout_height="wrap_content"
             android:gravity="center"
             >
+
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnStartFromBeginning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
                 android:layout_margin="10dp"
-                />
+                android:text="@string/btnStartFromTheBeginning" />
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
@@ -115,13 +115,13 @@ android:orientation="vertical"
             android:text="Button"
             android:layout_margin="10dp"
             />
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            android:layout_margin="10dp"
-            />
+
+            <Button
+                android:id="@+id/btnKeyboardSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/btnKeyBoardSize" />
         </TableRow>
 
 

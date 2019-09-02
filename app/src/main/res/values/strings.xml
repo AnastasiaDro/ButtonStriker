@@ -10,4 +10,6 @@
     <string name="btnStatistics">See your progress</string>
     <string name="btnContinue">Continue from saved results</string>
     <string name="textStartNewTraining">Start new training</string>
+    <string name="btnStartFromTheBeginning">From the beginning</string>
+    <string name="btnKeyBoardSize">From keyboard size</string>
 </resources>
