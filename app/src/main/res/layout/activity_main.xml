@@ -131,6 +131,7 @@
             android:layout_width="148dp"
             android:layout_height="131dp"
             android:layout_gravity="left|center_vertical"
+            android:layout_margin="12dp"
             android:onClick="onClick"
             android:text="@string/btnName"
             android:visibility="invisible" />
@@ -140,6 +141,7 @@
             android:layout_width="148dp"
             android:layout_height="131dp"
             android:layout_gravity="center"
+            android:layout_margin="12dp"
             android:onClick="onClick"
             android:text="@string/btnName" />
 
@@ -148,6 +150,7 @@
             android:layout_width="148dp"
             android:layout_height="131dp"
             android:layout_gravity="right|center_vertical"
+            android:layout_margin="12dp"
             android:onClick="onClick"
             android:text="@string/btnName"
             android:visibility="invisible" />
