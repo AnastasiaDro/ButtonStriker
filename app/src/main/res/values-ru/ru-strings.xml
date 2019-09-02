@@ -11,4 +11,6 @@
     <string name="btnStatistics">Посмотреть прогресс</string>
     <string name="btnContinue">Продолжить с сохранения</string>
     <string name="textStartNewTraining">Начать новую тренировку</string>
+    <string name="btnStartFromTheBeginning">Начать сначала</string>
+    <string name="btnKeyBoardSize">Кнопка планшета</string>
 </resources>

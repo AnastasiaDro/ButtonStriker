@@ -94,11 +94,13 @@ android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:onClick="onBeginSizeBtnSClick"
                 android:text="@string/btnStartFromTheBeginning" />
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onBeginSizeBtnSClick"
                 android:text="Button"
                 android:layout_margin="10dp"
                 />
@@ -112,6 +114,7 @@ android:orientation="vertical"
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onBeginSizeBtnSClick"
             android:text="Button"
             android:layout_margin="10dp"
             />
@@ -120,6 +123,7 @@ android:orientation="vertical"
                 android:id="@+id/btnKeyboardSize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onBeginSizeBtnSClick"
                 android:layout_margin="10dp"
                 android:text="@string/btnKeyBoardSize" />
         </TableRow>
