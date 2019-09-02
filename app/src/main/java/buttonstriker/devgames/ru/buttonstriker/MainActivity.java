@@ -2,10 +2,12 @@ package buttonstriker.devgames.ru.buttonstriker;
 
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -24,6 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private TextView strikeValue;
     //изменитель кнопки
     static MyButtonChanger myButtonChanger;
+
+//    //переменные стартовых параметров кнопок
+    int startParamsCenterHight;
+    int startParamsCenterWight;
+
+    String sizeChange = "";
 
     //флаг попадания
     private boolean flag = false;
@@ -47,7 +55,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             buttonRight.setLayoutParams(presenter.getButtonParams("right"));
    //         buttonRight.setVisibility(presenter.getBtnVisibArr(2));
         } else {
-            System.out.println("массив пустой");
+
+//            //заберем себе параметры кнопки
+            startParamsCenterHight = buttonCenter.getLayoutParams().height;
+            startParamsCenterWight = buttonCenter.getLayoutParams().width;
+
         }
 
         touchCountValue = findViewById(R.id.screenTouchCount);
@@ -135,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     //кнопка настроек, обработчик
     public void onSettingsClick (View view){
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        intent.putExtra("BTN_SIZE_KEY", sizeChange);
         startActivity(intent);
     }
 

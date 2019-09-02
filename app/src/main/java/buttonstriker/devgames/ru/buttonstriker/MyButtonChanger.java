@@ -15,7 +15,6 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     private int newBtnHigh;
     private int newBtnWight;
 
-
     //позиция кнопки
     int position = 1;
 //узнаем ширину экрана
@@ -36,8 +35,10 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
 
         this.presenter = presenter;
 
+
         //что-то там рпиводим к пикселям в зависимости от полученного размера экрана для последующего изменения размера кнопки
         sizeInPX= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+
 
     }
 
