@@ -10,26 +10,24 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="378dp"
+        android:layout_height="235dp"
         android:layout_gravity="top"
         android:layout_weight="1"
         tools:layout_editor_absoluteY="1dp">
 
-        <TextView
-            android:id="@+id/screenTouchCount"
-            android:layout_width="17dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="0"
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="63dp"
+            android:layout_height="47dp"
+            android:onClick="onSettingsClick"
+            android:text="@string/Settings"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.227"
+            app:layout_constraintEnd_toStartOf="@+id/touchesName"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/touchesName"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.027" />
 
         <TextView
             android:id="@+id/pressName"
@@ -101,21 +99,26 @@
             android:text="@string/touchesName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.144"
+            app:layout_constraintHorizontal_bias="0.176"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.071" />
+            app:layout_constraintVertical_bias="0.069" />
 
-        <Button
-            android:id="@+id/btnSettings"
-            android:layout_width="47dp"
-            android:layout_height="35dp"
-            android:text="@string/Settings"
+        <TextView
+            android:id="@+id/screenTouchCount"
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="0"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/touchesName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.227"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.073" />
+            app:layout_constraintTop_toBottomOf="@+id/touchesName"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </android.support.constraint.ConstraintLayout>

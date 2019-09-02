@@ -1,31 +1,16 @@
 package buttonstriker.devgames.ru.buttonstriker;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
+
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.TypedValue;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
-
-
 
     //Создаём презентер
     private MainPresenter presenter = MainPresenter.getInstance();
@@ -39,30 +24,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private TextView strikeValue;
     //изменитель кнопки
     static MyButtonChanger myButtonChanger;
-//
-
-
-
-//    //счётчик нажатий на экран
-//    private Integer touch = 0;
-//    //счётчик нажатий на кнопку
-//    private Integer press = 0;
-//    //счётчик последовательных попаданий
-//    private Integer strike = 0;
-//    //переменная для смены направлений смещения кнопки
-//   // private int mod = -1;
-//    //обнулять внутренникй стайк-счётчик
-//    int oneNine = 0;
 
     //флаг попадания
     private boolean flag = false;
 
     //ширина экрана
    int width;
-   //массив спараметрами кнопок
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,14 +67,13 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         touchMe.setOnTouchListener(this);
 
         //получаем ширину экрана
-        getScreenWidth();
+        //getScreenWidth();
 
 
         System.out.println("ширина: " + width);
         myButtonChanger = new MyButtonChanger(this.getBaseContext(), buttonLeft, buttonCenter, buttonRight, width, presenter);
-        // myButtonChanger = new MyNewButtonChanger(this.getBaseContext(), button, width);
-
     }
+
     //обработка касания на экран
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -117,10 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         //
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: // нажатие
-//                touch++;
-//                strike = 0;
-//                oneNine = 0;
-
                 presenter.incrementTouch();
                 presenter.setStrike(0);
                 presenter.setOneNine(0);
@@ -144,21 +106,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     public void onClick(View view) {
         //показываем, что попал в кнопку
-        //press++;
-        //touch++;
        presenter.incrementPress();
        presenter.incrementTouch();
         if (flag = true) {
-//            strike++;
-//            oneNine++;
             presenter.incrementStrike();
             presenter.incrementOneNine();
-
-
-   //         System.out.println(strike);
         } else {
-//            strike = 1;
-//            oneNine = 1;
             presenter.setStrike(1);
             presenter.setOneNine(1);
         }
@@ -172,23 +125,29 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         //пробуем менять положение
         if (presenter.getStrike() % 3 == 0) {
             myButtonChanger.changeBtnAlingment();
-// //           mod=mod*(-2);
         }
-
         //изменим размер кнопки
         if (presenter.getStrike() % 9 == 0) {
             myButtonChanger.changeBtnSize();
         }
     }
 
-    //получаем ширину экрана
-        public int getScreenWidth() {
-            Display display = getWindowManager().getDefaultDisplay();
-            Point size = new Point();
-            display.getSize(size);
-            width = size.x;
-        return width;
-        }
+    //кнопка настроек, обработчик
+    public void onSettingsClick (View view){
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
+
+//
+//    //получаем ширину экрана
+//        public int getScreenWidth() {
+//            Display display = getWindowManager().getDefaultDisplay();
+//            Point size = new Point();
+//            display.getSize(size);
+//            width = size.x;
+//        return width;
+//        }
 
 
 //        //метод сохранения активности (из жизнцикла)
