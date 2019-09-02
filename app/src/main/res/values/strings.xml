@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">ButtonStriker</string>
-    <string name="fstBtn">Ю</string>
-    <string name="secStrikesName">Подряд:</string>
-    <string name="touchesName">Всего касаний</string>
-    <string name="strikesName">Всего попаданий</string>
-    <string name="strikeView">Подряд</string>
-    <string name="btnName">Жми!</string>
+    <string name="touchesName">total touches</string>
+    <string name="strikesName">Total hits</string>
+    <string name="strikeView">In a row</string>
+    <string name="btnName">Press!</string>
+    <string name="Settings">Settings</string>
 </resources>

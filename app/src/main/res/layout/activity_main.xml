@@ -106,8 +106,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.071" />
 
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="47dp"
+            android:layout_height="35dp"
+            android:text="@string/Settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/touchesName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.073" />
 
-</android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/touchMe"
