@@ -6,6 +6,9 @@
     <string name="strikeView">Подряд</string>
     <string name="btnName">Жми!</string>
     <string name="Settings">Меню</string>
-    <string name="savedGame">Продолжить</string>
-    <string name="newGame">Новая тренировка</string>
+    <string name="btnBack">Назад</string>
+    <string name="btnAbout">О программе</string>
+    <string name="btnStatistics">Посмотреть прогресс</string>
+    <string name="btnContinue">Продолжить с сохранения</string>
+    <string name="textStartNewTraining">Начать новую тренировку</string>
 </resources>
