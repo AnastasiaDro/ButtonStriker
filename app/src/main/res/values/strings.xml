@@ -5,4 +5,11 @@
     <string name="strikeView">In a row</string>
     <string name="btnName">Press!</string>
     <string name="Settings">Settings</string>
+    <string name="savedGame">Continue</string>
+    <string name="newGame">New training</string>
+    <string name="btnBack">Back</string>
+    <string name="btnAbout">About</string>
+    <string name="btnStatistics">See your progress</string>
+    <string name="btnContinue">Continue from saved results</string>
+    <string name="textStartNewTraining">Start new training</string>
 </resources>
