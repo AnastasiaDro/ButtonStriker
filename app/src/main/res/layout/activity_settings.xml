@@ -95,28 +95,28 @@ android:orientation="vertical"
                 android:layout_margin="10dp"
                 android:onClick="onBeginSizeBtnSClick"
                 android:text="@string/btnStartFromTheBeginning" />
+
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/moves3btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onBeginSizeBtnSClick"
-                android:text="Button"
                 android:layout_margin="10dp"
-                />
+                android:onClick="onBeginSizeBtnSClick"
+                android:text="@string/threeMovesForward" />
 
         </TableRow>
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center">
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onBeginSizeBtnSClick"
-            android:text="Button"
-            android:layout_margin="10dp"
-            />
+
+            <Button
+                android:id="@+id/moves5btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:onClick="onBeginSizeBtnSClick"
+                android:text="@string/fiveMovesForward" />
 
             <Button
                 android:id="@+id/btnKeyboardSize"

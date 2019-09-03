@@ -12,4 +12,6 @@
     <string name="textStartNewTraining">Start new training</string>
     <string name="btnStartFromTheBeginning">From the beginning</string>
     <string name="btnKeyBoardSize">From keyboard size</string>
+    <string name="threeMovesForward">3 moves forward</string>
+    <string name="fiveMovesForward">5 moves forward</string>
 </resources>

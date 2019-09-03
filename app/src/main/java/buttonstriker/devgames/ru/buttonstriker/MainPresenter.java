@@ -109,6 +109,7 @@ public class MainPresenter {
     //метод установки позиции
     public void setPosition(int pos){
         position = pos;
+    // метод получения позиции
     }
     public int getPosition(){
         return position;

@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     //ширина экрана
    int width;
 
+   //код для запроса к экрану настроек
+    static private final int CHOOSE_START_SETTINGS = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,8 +149,20 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     //кнопка настроек, обработчик
     public void onSettingsClick (View view){
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-        intent.putExtra("BTN_SIZE_KEY", sizeChange);
-        startActivity(intent);
+        startActivityForResult(intent, CHOOSE_START_SETTINGS);
+    }
+
+    //обработка полученных настроек
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //
+        if (requestCode == CHOOSE_START_SETTINGS){
+            if (resultCode == RESULT_OK){
+                // тут пишем что меняем нокпки
+       //         int btnChangePX = data.getIntExtra(S)
+            }
+        }
     }
 
 

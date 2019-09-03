@@ -15,8 +15,6 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     private int newBtnHigh;
     private int newBtnWight;
 
-    //позиция кнопки
- //   int position = 1;
 //узнаем ширину экрана
     int width;
 
