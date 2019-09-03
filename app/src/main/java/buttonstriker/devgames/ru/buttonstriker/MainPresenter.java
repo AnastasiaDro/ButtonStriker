@@ -35,6 +35,9 @@ public class MainPresenter {
     //ТУТ НУЖНО СОХРАНЯТЬ ВИДИМОСТЬ КНОПОК
     private int btnVisibArr[];
 
+    //перенесем сюда позицию
+    private int position;
+
     private MainPresenter () {
         touch=0;
         //счётчик нажатий на кнопку
@@ -50,6 +53,8 @@ public class MainPresenter {
 
         //видимость кнопок
         btnVisibArr = new int[]{INVISIBLE, VISIBLE, INVISIBLE};
+        //позиция
+        position = 1;
     }
 
     //Методы для увеличения переменных на 1
@@ -101,6 +106,13 @@ public class MainPresenter {
         this.oneNine = oneNine;
     }
 
+    //метод установки позиции
+    public void setPosition(int pos){
+        position = pos;
+    }
+    public int getPosition(){
+        return position;
+    }
 
     //метод сохранения???
     public static MainPresenter getInstance(){

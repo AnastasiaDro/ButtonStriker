@@ -16,7 +16,7 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
     private int newBtnWight;
 
     //позиция кнопки
-    int position = 1;
+ //   int position = 1;
 //узнаем ширину экрана
     int width;
 
@@ -79,23 +79,22 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
 
     //меняем положение кнопки
     public void changeBtnAlingment () {
-        switch (position){
+        switch (presenter.getPosition()){
             case 1:
                 buttonCenter.setVisibility(INVISIBLE);
                 buttonLeft.setVisibility(VISIBLE);
-                position = 2;
+                presenter.setPosition(2);
                 break;
             case 2:
                 buttonLeft.setVisibility(INVISIBLE);
                 buttonRight.setVisibility(VISIBLE);
+                presenter.setPosition(3);
 
-                position = 3;
                 break;
             case 3:
                 buttonRight.setVisibility(INVISIBLE);
                 buttonCenter.setVisibility(VISIBLE);
-
-                position = 1;
+                presenter.setPosition(1);
                 break;
         }
         //сохраняем видимости кнопок
