@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private int startParamsCenterHight;
     private int startParamsCenterWight;
 
+    //переменные для настроек: размер кнопки
+    private int settingsBtnWight;
+    private int settingsBtnHight;
+
+
     String sizeChange = "";
 
     //флаг попадания
@@ -157,14 +162,15 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         if (requestCode == CHOOSE_START_SETTINGS && resultCode == RESULT_OK){
                 int btnChangePX = data.getIntExtra(SettingsActivity.ANSWER_BTN_SIZE,0);
                 if (btnChangePX == 111) {
-
+                    settingsBtnWight = startParamsCenterWight - 90;
+                    settingsBtnHight = startParamsCenterHight - 90;
             }  else {
                     //из стартовых размеров кнопки вычитаем нужное число пикселей-ходов (может быть 0)
                     //и присваиваем новые высоту-ширину каждой кнопке
-                    int settingsBtnWight = startParamsCenterWight - btnChangePX;
-                    int settingsBtnHight = startParamsCenterHight - btnChangePX;
-                    myButtonChanger.changeBtnSizeForNewHW(settingsBtnHight,settingsBtnWight);
+                    settingsBtnWight = startParamsCenterWight - btnChangePX;
+                    settingsBtnHight = startParamsCenterHight - btnChangePX;
                 }
+            myButtonChanger.changeBtnSizeForNewHW(settingsBtnHight,settingsBtnWight);
         }
     }
 

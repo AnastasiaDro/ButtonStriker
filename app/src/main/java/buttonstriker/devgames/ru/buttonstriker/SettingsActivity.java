@@ -10,8 +10,8 @@ import android.view.View;
 public class SettingsActivity extends AppCompatActivity {
 
     public static final int START_BTN_SIZE = 0;
-    public static final int THIRD_BTN_SIZE = 50;
-    public static final int FIFTH_BTN_SIZE = 90;
+    public static final int THIRD_BTN_SIZE = 30;
+    public static final int FIFTH_BTN_SIZE = 50;
     public static final int KEYBOARD_SIZE = 111;
 
     public final static String ANSWER_BTN_SIZE = "ANSWER_BTN_SIZE";
@@ -46,6 +46,8 @@ public class SettingsActivity extends AppCompatActivity {
         setResult(RESULT_OK, answerIntent);
         finish();
     }
+
+
 
     public void onBtnBackClick(View view) {
         finish();
