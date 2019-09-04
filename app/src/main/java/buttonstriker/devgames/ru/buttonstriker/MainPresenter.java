@@ -1,15 +1,8 @@
 package buttonstriker.devgames.ru.buttonstriker;
 
 
-import android.os.Bundle;
-import android.os.ParcelUuid;
-import android.support.annotation.NonNull;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-
 import java.util.ArrayList;
-
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
@@ -37,6 +30,10 @@ public class MainPresenter {
 
     //перенесем сюда позицию
     private int position;
+
+    //стартовые высота и ширина кнопок
+
+
 
     private MainPresenter () {
         touch=0;
@@ -87,7 +84,6 @@ public class MainPresenter {
     public Integer getOneNine(){
         return oneNine;
     }
-
 
     //сеттеры для переменных
     public void setTouch(Integer touch) {
@@ -142,7 +138,6 @@ public class MainPresenter {
 
 
     public ViewGroup.LayoutParams getButtonParams(String btnPosName) {
-//        presenterButtonParamsArray = MainActivity.myButtonChanger.getButtonParamsArray();
        ViewGroup.LayoutParams btnParams = null;
         switch (btnPosName){
             case "left":

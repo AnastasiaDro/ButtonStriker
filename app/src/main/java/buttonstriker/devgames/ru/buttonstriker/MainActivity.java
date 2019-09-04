@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     static MyButtonChanger myButtonChanger;
 
 //    //переменные стартовых параметров кнопок
-    int startParamsCenterHight;
-    int startParamsCenterWight;
+    private int startParamsCenterHight;
+    private int startParamsCenterWight;
 
     String sizeChange = "";
 
@@ -87,6 +87,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         System.out.println("ширина: " + width);
         myButtonChanger = new MyButtonChanger(this.getBaseContext(), buttonLeft, buttonCenter, buttonRight, width, presenter);
     }
+
+
+    //геттеры стартового размера кнопки
+
+
+
 
     //обработка касания на экран
     @Override
@@ -157,11 +163,17 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //
-        if (requestCode == CHOOSE_START_SETTINGS){
-            if (resultCode == RESULT_OK){
-                // тут пишем что меняем нокпки
-       //         int btnChangePX = data.getIntExtra(S)
-            }
+        if (requestCode == CHOOSE_START_SETTINGS && resultCode == RESULT_OK){
+                int btnChangePX = data.getIntExtra(SettingsActivity.ANSWER_BTN_SIZE,0);
+                if (btnChangePX == 111) {
+
+            }  else {
+                    //из стартовых размеров кнопки вычитаем нужное число пикселей-ходов (может быть 0)
+                    //и присваиваем новые высоту-ширину каждой кнопке
+                    int settingsBtnWight = startParamsCenterWight - btnChangePX;
+                    int settingsBtnHight = startParamsCenterHight - btnChangePX;
+                    myButtonChanger.changeBtnSizeForNewHW(settingsBtnHight,settingsBtnWight);
+                }
         }
     }
 
