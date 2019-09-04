@@ -47,8 +47,10 @@ public class SettingsActivity extends AppCompatActivity {
         finish();
     }
 
-
-
+    public void onAboutClick(View view) {
+        Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
+        startActivity(intent);
+    }
     public void onBtnBackClick(View view) {
         finish();
     }

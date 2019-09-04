@@ -14,4 +14,7 @@
     <string name="btnKeyBoardSize">From keyboard size</string>
     <string name="threeMovesForward">3 moves forward</string>
     <string name="fiveMovesForward">5 moves forward</string>
+    <string name="about">Hey, guys! \n This app was written by me, Anastasia Drogunova, for my dear student Yura. Yura has autism and problems with motor control. I hope this simple tool will help him in studying printing by tablet PC. \n Be happy!
+    Contacts: you can write me on Facebook: look for Anastasia Drogunova
+        \n https://www.facebook.com/profile.php?id=100001054275331</string>
 </resources>

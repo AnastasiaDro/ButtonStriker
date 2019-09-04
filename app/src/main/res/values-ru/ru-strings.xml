@@ -15,4 +15,7 @@
     <string name="btnKeyBoardSize">Кнопка планшета</string>
     <string name="threeMovesForward">3 шага вперед</string>
     <string name="fiveMovesForward">5 шагов вперед</string>
+    <string name="about">Привет, друзья! \n Это приложение было написано мной для моего ученика Юры. У Юры аутизм и проблемы с произвольными моторными актами. Я надеюсь, что этот простой тренажер поможет ему научиться печатать на планшете \n Be happy!
+    Контакты:вы можете написать мне на Facebook: ищите "Анастасия Дрогунова"
+        \n https://www.facebook.com/profile.php?id=100001054275331</string>
 </resources>
