@@ -82,18 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         //получаем ширину экрана
         //getScreenWidth();
-
-
         System.out.println("ширина: " + width);
         myButtonChanger = new MyButtonChanger(this.getBaseContext(), buttonLeft, buttonCenter, buttonRight, width, presenter);
     }
-
-
-    //геттеры стартового размера кнопки
-
-
-
-
     //обработка касания на экран
     @Override
     public boolean onTouch(View v, MotionEvent event) {

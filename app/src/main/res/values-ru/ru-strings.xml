@@ -13,6 +13,6 @@
     <string name="textStartNewTraining">Начать новую тренировку</string>
     <string name="btnStartFromTheBeginning">Начать сначала</string>
     <string name="btnKeyBoardSize">Кнопка планшета</string>
-    <string name="threeMovesForward">3 шага вперед</string>
-    <string name="fiveMovesForward">5 шагов вперед</string>
+    <string name="threeMovesForward">5 шага вперед</string>
+    <string name="fiveMovesForward">9 шагов вперед</string>
 </resources>

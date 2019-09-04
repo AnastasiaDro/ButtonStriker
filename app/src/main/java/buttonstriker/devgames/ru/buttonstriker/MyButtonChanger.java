@@ -58,25 +58,7 @@ public class MyButtonChanger extends android.support.v7.widget.AppCompatButton {
 
         newBtnHigh = paramsRight.height - sizeInPX;
         newBtnWight = paramsRight.width - sizeInPX;
-//        //каждой кнопке по отдельности изменяем в её параметрах ширину и высоту на новую
-//        paramsCenter.height = newBtnHigh;
-//        paramsCenter.width = newBtnWight;
-//
-//        paramsRight.height = newBtnHigh;
-//        paramsRight.width = newBtnWight;
-//
-//        paramsLeft.height = newBtnHigh;
-//        paramsLeft.width = newBtnWight;
-//
-//        //Прикручивааем каждой кнопке новые параметры
-//        buttonCenter.setLayoutParams(paramsCenter);
-//        buttonRight.setLayoutParams(paramsRight);
-//        buttonLeft.setLayoutParams(paramsLeft);
-
         changeBtnSizeForNewHW(newBtnHigh, newBtnWight);
-
-//        //тут добавляем в массив презентера параметры кнопок
-//        presenter.setPresenterButtonParamsArray(paramsLeft, paramsCenter, paramsRight);
     }
 
 //метод изменения размеров кнопок на заданные параметры
