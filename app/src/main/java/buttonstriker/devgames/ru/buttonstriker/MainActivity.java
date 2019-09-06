@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     static MyButtonChanger myButtonChanger;
 
 //    //переменные стартовых параметров кнопок
-    private int startParamsCenterHight;
+   private int startParamsCenterHight;
     private int startParamsCenterWight;
 
     //переменные для настроек: размер кнопки
@@ -64,9 +64,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         } else {
 
 //            //заберем себе параметры кнопки
-            startParamsCenterHight = buttonCenter.getLayoutParams().height;
-            startParamsCenterWight = buttonCenter.getLayoutParams().width;
-
+           startParamsCenterHight = buttonCenter.getLayoutParams().height;
+           startParamsCenterWight = buttonCenter.getLayoutParams().width;
+//
+//            presenter.setStartParamsCenterHigh(buttonCenter.getLayoutParams().height);
+//            presenter.setStartParamsCenterWight(buttonCenter.getLayoutParams().width);
         }
 
         touchCountValue = findViewById(R.id.screenTouchCount);
@@ -164,11 +166,15 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 if (btnChangePX == 111) {
                     settingsBtnWight = startParamsCenterWight - 90;
                     settingsBtnHight = startParamsCenterHight - 90;
+//                    settingsBtnWight = presenter.getStartParamsCenterWight() - 90;
+//                    settingsBtnHight = presenter.getStartParamsCenterHigh() - 90;
             }  else {
                     //из стартовых размеров кнопки вычитаем нужное число пикселей-ходов (может быть 0)
                     //и присваиваем новые высоту-ширину каждой кнопке
                     settingsBtnWight = startParamsCenterWight - btnChangePX;
                     settingsBtnHight = startParamsCenterHight - btnChangePX;
+//                    settingsBtnWight = presenter.getStartParamsCenterWight() - btnChangePX;
+//                    settingsBtnHight = presenter.getStartParamsCenterHigh() - btnChangePX;
                 }
             myButtonChanger.changeBtnSizeForNewHW(settingsBtnHight,settingsBtnWight);
         }

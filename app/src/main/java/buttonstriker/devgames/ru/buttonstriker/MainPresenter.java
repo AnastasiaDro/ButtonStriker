@@ -13,7 +13,8 @@ public class MainPresenter {
     private static final Object syncobj = new Object();
 
 
-//переменные для сохранения
+
+    //переменные для сохранения
 //счётчик нажатий на экран
     private Integer touch;
     //счётчик нажатий на кнопку
@@ -32,8 +33,8 @@ public class MainPresenter {
     private int position;
 
     //стартовые высота и ширина кнопок
-
-
+//    int startParamsCenterHigh;
+//    int startParamsCenterWight;
 
     private MainPresenter () {
         touch=0;
@@ -53,6 +54,22 @@ public class MainPresenter {
         //позиция
         position = 1;
     }
+
+    //методы изменения и получения стартовых параметров кнопки
+//    public void setStartParamsCenterHigh(int paramsHight){
+//        startParamsCenterHigh = paramsHight;
+//    }
+//    public void setStartParamsCenterWight(int paramsWight){
+//        startParamsCenterHigh = paramsWight;
+////    }
+//
+//    public int getStartParamsCenterHigh() {
+//        return startParamsCenterHigh;
+//    }
+//
+//    public int getStartParamsCenterWight() {
+//        return startParamsCenterWight;
+//    }
 
     //Методы для увеличения переменных на 1
     public  void incrementTouch(){
